@@ -7,10 +7,10 @@ from pyb import Timer
 from pyb import I2C
 from machine import Pin
 
-#u2 = UART(2, baudrate=9600, read_buf_len=8192)
-#u3 = UART(3, baudrate=9600, read_buf_len=2048)
-u6 = UART(6, baudrate=9600, read_buf_len=8192)
-#u4 = UART(4, baudrate=9600, read_buf_len=8192) 
+#u2 = UART(2, baudrate=115200, read_buf_len=8192)
+#u3 = UART(3, baudrate=115200, read_buf_len=2048)
+u6 = UART(6, baudrate=9600, read_buf_len=4096)
+#u4 = UART(4, baudrate=115200, read_buf_len=8192) 
 
 i2c = I2C(2, I2C.MASTER)
 left_down = Pin('X12', Pin.IN, Pin.PULL_UP) 
@@ -293,6 +293,7 @@ def SHUTDOWN():
         return 1
 
 while True:
+    print("system print")
 
     if sw and not Fan():
         u6.writechar(21)
